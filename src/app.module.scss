@@ -1,19 +1,21 @@
-.nav{
+.nav {
   max-width: 1024px;
   margin: auto;
   background-color: tomato;
   padding: 8px;
 }
 
-.logo-img{
+.logo-img {
   width: 48px;
   height: 48px;
   background-color: yellowgreen;
 }
-.logo{
+
+.logo {
   display: flex;
   justify-content: end;
 }
+
 .content {
   overflow: hidden;
   display: flex;
@@ -24,3 +26,4 @@
   height: 100vh;
   background-color: rgb(179, 224, 254);
 }
+

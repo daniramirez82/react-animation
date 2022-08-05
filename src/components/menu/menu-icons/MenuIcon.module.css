@@ -1,0 +1,17 @@
+.wrapper{
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    background-color: rosybrown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.icon-wrapper{
+    width: 80%;
+    background-color: tomato;
+    display: flex;
+    justify-content: center;
+}
