@@ -3,6 +3,7 @@
    position: absolute;
    background-color: rgb(152, 114, 190);
    width: auto;
+   max-width: 100vw;
    height: 80%;
    left: -100%;
    display: flex;
@@ -10,10 +11,15 @@
 
 .icons{
    background-color: blue;
-
+   position: relative;
+   z-index: 1000;
 }
 
 .sub-menu{
+   position: relative;
    background-color: rgb(86, 119, 54);
    letter-spacing: -.032em;
+   max-width: 100%;
+   width: 40%;
+   flex-grow: 1;
 }

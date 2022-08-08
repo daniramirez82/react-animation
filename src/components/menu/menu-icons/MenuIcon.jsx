@@ -6,8 +6,8 @@ const MenuIcon = ({ icon, name, onClick }) => {
 
 
     return (
-        <div className={styles.wrapper}>
-            <div data-name={name} onClick={onClick} className={styles['icon-wrapper']}>
+        <div data-name={name} onClick={onClick} className={styles.wrapper}>
+            <div  className={styles['icon-wrapper']}>
                 <img src={`icons/${icon}`} alt={name} />
             </div>
         </div>

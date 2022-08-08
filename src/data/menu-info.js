@@ -3,7 +3,7 @@ export const menu = [
         name:'Breads',
         icon: 'breads.svg',
         subTitle: 'Kinds of Breads',
-        contents: ['Canilla', 'Montañesa', 'Ciabbatta', 'Rustic']
+        contents: [{name: 'Canilla'}, {name:'Montañesa'}, {name:'Ciabbatta'}, {name:'Rustic'}]
 
     },
     {

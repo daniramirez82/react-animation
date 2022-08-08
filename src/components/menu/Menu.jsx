@@ -7,11 +7,10 @@ import SubMenu from './sub-menu/SubMenu';
 
 export const Menu = ({ isOpen }) => {
     const contMenu = useRef();
-    const [isMenuOpen, setIsMenusOpen] = useState(isOpen);
-    const [subMenu, setSubMenu]= useState();
+    const [subMenu, setSubMenu] = useState();
+    const subMenuCont = useRef();
 
     useEffect(() => {
-        console.log('desde menu', isOpen);
         if (isOpen) {
             const enter = gsap.to(contMenu.current, {
                 left: 0,
@@ -26,11 +25,35 @@ export const Menu = ({ isOpen }) => {
     }, [isOpen])
 
     const updateMenu = (e) => {
-        e.preventDefault();
 
-        const subMenuTemp = menu.filter(i=> i.name === e.currentTarget.dataset.name);        
-        console.log(subMenuTemp);
-        setSubMenu(subMenuTemp[0]);
+        console.log('esto es e en updatemenu?,', e);
+        if (subMenu) {
+            if (subMenu.name == e.currentTarget.dataset.name) return
+        }
+
+        const setNewSubMenu = (t) => {
+            console.log('lo que envia on complete', t.target);
+            const subMenuTemp = menu.filter(i => i.name === e.currentTarget.dataset.name);
+            setSubMenu((prevSubMenu) => {
+                return subMenuTemp[0];
+            });
+
+        }
+
+
+        const tl = gsap.timeline({
+            onComplete: setNewSubMenu,
+            onCompleteParams: [e],
+        });
+        tl.to(subMenuCont.current, {
+            x: -100,
+            opacity: 0,
+
+        }).to(subMenuCont.current, {
+            x: 0,
+            opacity: 1
+        });
+
     }
     return (
         <div ref={contMenu} className={styles.principal}>
@@ -40,8 +63,8 @@ export const Menu = ({ isOpen }) => {
 
                 })}
             </div>
-            <div className={styles['sub-menu']}>
-                {subMenu && <SubMenu subMenu={subMenu}/> }
+            <div ref={subMenuCont} className={styles['sub-menu']}>
+                {subMenu && <SubMenu subMenu={subMenu} />}
                 <p>Others: </p>
             </div>
         </div>

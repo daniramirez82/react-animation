@@ -6,17 +6,16 @@ export function App() {
   const [isOpenMenu, setIsOpenMenu] = useState();
 
   const toggleMenu = (isOpen)=>{
-    console.log('desde app: ', isOpen);
     setIsOpenMenu(isOpen);
   }
 
   return (
     <>
       <div className={"pure-g " + styles.nav}>
-        <div className="pure-u-1-8">
+        <div className="pure-u-7-8">
           <BurguerIcon toggleMenu={toggleMenu} />
         </div>
-        <div className={"pure-u-7-8 " + styles.logo}>
+        <div className={"pure-u-1-8 " + styles.logo}>
           <div className={styles["logo-img"]}></div>
         </div>
       </div>
