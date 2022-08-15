@@ -1,11 +1,9 @@
 
 .principal{
-   position: absolute;
+   position: relative;
    background-color: rgb(152, 114, 190);
    width: auto;
    max-width: 100vw;
-   height: 80%;
-   left: -100%;
    display: flex;
 }
 
@@ -22,4 +20,5 @@
    max-width: 100%;
    width: 40%;
    flex-grow: 1;
+   z-index: 500;
 }

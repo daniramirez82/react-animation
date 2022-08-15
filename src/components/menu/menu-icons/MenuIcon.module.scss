@@ -1,12 +1,14 @@
 .wrapper{
     width: 52px;
-    height: 52px;
+    height: 45px;
     border-radius: 16px;
-    background-color: rosybrown;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 10px;
+    & :hover {
+        background-color: #e3e3e3;
+    }
     
 }
 

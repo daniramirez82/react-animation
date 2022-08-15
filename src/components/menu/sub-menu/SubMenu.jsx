@@ -1,39 +1,49 @@
-import gsap from 'gsap';
-import { useEffect, useRef } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
+import { AnimatePresence, motion } from 'framer-motion'
 import styles from './SubMenu.module.scss';
 
-const SubMenu = ({ subMenu }) => {
-    const subMenuCont = useRef();
+const SubMenu = ({ menu }) => {
+    const [visible, setVisible] = useState();
+    const [subMenu, setSubMenu] = useState();
 
-    useEffect(()=>{
-        gsap.to(subMenuCont.current, {
-            x:0,
-            opacity:1,
-        });
-        return ()=>{
-            console.log(subMenu);
-            gsap.to(subMenuCont.current, {
-                x:-100,
-                opacity:0,
-            })
+    useEffect(() => {
+        const myTimer = setTimeout(() => {
+            setVisible(true);
+            setSubMenu(menu);
+        }, 500);
+
+        return () => {
+            setVisible(false);
+            clearTimeout(myTimer)
         }
-        
-    },[subMenu])
+    }, [menu])
 
     return (
-        <div ref={subMenuCont} className={styles['sub-menu']}>
-            <h2>{subMenu.subTitle}</h2>
-            <input className={styles['input-search']} type="text" />
-            <h3 className={styles.subtitle}>{subMenu.subTitle}</h3>
-            <ul className={styles.list}>
-            {subMenu.contents.map(i=>{
-                return (
-                   <li> <a href={i.url}> <span>{i.name}</span> </a></li>
-                )
-            })}
+        <AnimatePresence >
+            {menu && visible &&
+                <motion.div
+                    key="sub-menu"
+                    initial={{ opacity: 0, x: -300 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -60}}
+                    transition={{duration:0.5}}
 
-            </ul>
-        </div>
+                >
+                    <div className={styles['sub-menu']}>
+                        <h2>{subMenu.subTitle}</h2>
+                        <input className={styles['input-search']} type="text" />
+                        <h3 className={styles.subtitle}>{subMenu.subTitle}</h3>
+                        <ul className={styles.list}>
+                            {subMenu.contents.map(i => {
+                                return (
+                                    <li> <a href={i.url}> <span>{i.name}</span> </a></li>
+                                )
+                            })}
+
+                        </ul>
+                    </div>
+                </motion.div>}
+        </AnimatePresence>
     )
 }
 

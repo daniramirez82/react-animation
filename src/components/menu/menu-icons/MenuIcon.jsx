@@ -1,4 +1,4 @@
-import styles from './MenuIcon.module.css';
+import styles from './MenuIcon.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquareCaretUp } from '@fortawesome/free-regular-svg-icons';
 
