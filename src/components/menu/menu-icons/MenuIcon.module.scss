@@ -1,12 +1,12 @@
 .wrapper{
     width: 52px;
     height: 45px;
-    border-radius: 16px;
+    border-radius: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 10px;
-    & :hover {
+    &:hover,:focus {
         background-color: #e3e3e3;
     }
     
@@ -14,7 +14,6 @@
 
 .icon-wrapper{
     width: 80%;
-    background-color: tomato;
     display: flex;
     justify-content: center;
 }

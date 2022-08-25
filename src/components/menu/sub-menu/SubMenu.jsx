@@ -25,18 +25,21 @@ const SubMenu = ({ menu }) => {
                     key="sub-menu"
                     initial={{ opacity: 0, x: -300 }}
                     animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -60}}
-                    transition={{duration:0.5}}
+                    exit={{ opacity: 0, x: -60 }}
+                    transition={{ duration: 0.5 }}
+                    className={styles['main-sub-menu']}
 
                 >
                     <div className={styles['sub-menu']}>
                         <h2>{subMenu.subTitle}</h2>
-                        <input className={styles['input-search']} type="text" />
+                        <div className={styles.input}>
+                            <input className={styles['input-search']} type="text" placeholder='Type here'/>
+                        </div>
                         <h3 className={styles.subtitle}>{subMenu.subTitle}</h3>
                         <ul className={styles.list}>
                             {subMenu.contents.map(i => {
                                 return (
-                                    <li> <a href={i.url}> <span>{i.name}</span> </a></li>
+                                    <li> <a href={i.url}> <span className={styles['li-content']}>{i.name}</span> </a></li>
                                 )
                             })}
 

@@ -2,6 +2,7 @@ import { useState } from "preact/hooks";
 import styles from "./app.module.scss";
 import { Menu } from "./components/menu/Menu";
 import { BurguerIcon } from "./components/ui/BurguerIcon";
+import Icon from "./components/menu/menu-icons/Icon";
 export function App() {
   const [isOpenMenu, setIsOpenMenu] = useState();
 
@@ -21,9 +22,8 @@ export function App() {
       </div>
       <div className={"pure-g " + styles.content}>
         <Menu isOpen={isOpenMenu}/>
-
+        <Icon name ='account-group' color={'red'} size={50}/>
       </div>
     </>
   );
 }
-{}
