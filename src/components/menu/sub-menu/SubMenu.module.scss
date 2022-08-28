@@ -40,7 +40,7 @@ h2 {
         left: 0;
         width: 18px;
         height: 18px;
-        background: url(/public/icons/search.svg) no-repeat;
+        background: url(/icons/search.svg) no-repeat;
         color: white;
         margin-left: 10px;
     }
@@ -63,6 +63,7 @@ li {
     color: #3e3e3e;
     list-style: none;
     padding-top: 20px;
+
     & a {
         display: flex;
         align-items: center;
@@ -70,20 +71,21 @@ li {
         color: #3e3e3e;
         text-decoration: none;
         position: relative;
-        & span{
-            padding-left: 40px;
+
+        & span {
+            padding-left: 30px;
         }
+
         & span::before {
             position: absolute;
             left: 0;
             top: 50%;
             transform: translateY(-50%);
-            width: 24px;
-            height: 24px;
+            width: 18px;
+            height: 18px;
             content: '';
             display: block;
-            background-color: aqua;
-            background: url(/public/icons/fire.svg) no-repeat;
+            background: url(/icons/folder.svg) no-repeat;
         }
     }
 }

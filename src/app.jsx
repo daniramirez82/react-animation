@@ -17,7 +17,9 @@ export function App() {
           <BurguerIcon toggleMenu={toggleMenu} />
         </div>
         <div className={"pure-u-1-8 " + styles.logo}>
-          <div className={styles["logo-img"]}></div>
+          <div className={styles["logo-img"]}>
+            <img src="/icons/logo.svg" alt="logo" />
+          </div>
         </div>
       </div>
       <div className={"pure-g " + styles.content}>

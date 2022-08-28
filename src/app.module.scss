@@ -1,14 +1,19 @@
 .nav {
   max-width: 1024px;
   margin: auto;
-  background-color: tomato;
+  background-color: #111111;
   padding: 8px;
+  border-radius: 8px;
 }
 
 .logo-img {
   width: 48px;
   height: 48px;
-  background-color: yellowgreen;
+  background-color: #404040;
+  border-radius: 8px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 

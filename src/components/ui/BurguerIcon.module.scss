@@ -1,10 +1,11 @@
 .icon-wrap {
   width: 48px;
-  background-color: wheat;
+  background-color: rgb(73, 73, 73);
   height: 48px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 8px;
 }
 
 .icon-cont {
@@ -18,7 +19,7 @@
 
 .shape {
   height: 2px;
-  background-color: blue;
+  background-color: #ffd100;
   border-radius: 2px;
   transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
 
