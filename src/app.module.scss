@@ -4,6 +4,8 @@
   background-color: #111111;
   padding: 8px;
   border-radius: 8px;
+  position: relative;
+  z-index: 90;
 }
 
 .logo-img {
@@ -28,5 +30,13 @@
   background-color: #fff;
   border-radius: 12px;
   border: 2px solid #fff;
+  z-index: 20;
+}
+
+.backdrop{
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: #754747;
+  z-index: 10;
 }
 

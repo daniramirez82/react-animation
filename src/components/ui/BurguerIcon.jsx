@@ -1,20 +1,25 @@
-import { useState } from "preact/hooks";
+import { useContext } from "preact/hooks";
+import { createContext } from "preact";
 import styles from "./BurguerIcon.module.scss";
 
-export const BurguerIcon = ({toggleMenu}) => {
+export const BurguerIcon = () => {
 
-    const [isOpen, setIsOpen]=useState(false);
+  const MenuContext = createContext();
+  const CatContext = createContext()
 
-    const checkedHandler = ({currentTarget})=>{
-        setIsOpen(currentTarget.checked); 
-        toggleMenu(currentTarget.checked);
-    }
-    
+  const { isOpenMenu, setIsOpenMenu } = useContext(MenuContext);
+  const { subMenu, setSubMenu} = useContext(CatContext); //todo make the subMenu state global cuz burguer icon is not under scope
+
+  const checkedHandler = ({ currentTarget }) => {
+    setIsOpenMenu(currentTarget.checked);
+    if(subMenu) setSubMenu(null);
+  }
+
   return (
     <div className="button-movil">
       <div className={styles["icon-wrap"]}>
         <label for="check" className={styles["icon-cont"]}>
-          <input onInput={checkedHandler} className= {styles['checkbox-input']} type="checkbox" id="check" checked={isOpen}></input>
+          <input onInput={checkedHandler} className={styles['checkbox-input']} type="checkbox" id="check" checked={isOpenMenu}></input>
           <div className={`${styles.shape} ${styles.one}`}></div>
           <div className={`${styles.shape} ${styles.two}`}></div>
           <div className={`${styles.shape} ${styles.three}`}></div>

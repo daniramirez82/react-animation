@@ -1,28 +1,19 @@
 import styles from './MenuIcon.module.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSquareCaretUp } from '@fortawesome/free-regular-svg-icons';
-import { animate, motion } from 'framer-motion';
+import { useState } from 'preact/hooks';
 import Icon from './Icon';
-const MenuIcon = ({ icon, name, onClick }) => {
+
+const MenuIcon = ({ name, onClick, catContext }) => {
+    const [isSelected, setIsSelected] = useState(false); //todo read the global state and make botton darker if is selected
 
 
     return (
-        <motion.div
-            whileTap={{
-                scale: 0.8,
-            }}
-            whileHover={{
-                backgroundColor: 'red'
-
-            }}
-
-        >
-            <div data-name={name} onClick={onClick} className={styles.wrapper}>
+        
+            <div data-name={name} onClick={()=>onClick(name)} className={`${styles.wrapper} ${ name === catContext ? styles.selected : ""}`}>
                 <div  className={styles['icon-wrapper']}>
                     <Icon name={name} color={'red'} size={24}></Icon>
                 </div>
             </div>
-        </motion.div>
+        
     )
 
 }

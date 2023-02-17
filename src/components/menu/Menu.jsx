@@ -1,30 +1,40 @@
-import { useEffect, useRef, useState } from 'preact/hooks';
+import { useContext, useEffect, useRef, useState } from 'preact/hooks';
+import { createContext } from 'preact';
 import styles from './Menu.module.scss';
 import MenuIcon from './menu-icons/MenuIcon';
 import { menu } from '../../data/menu-info';
 import SubMenu from './sub-menu/SubMenu';
 import { AnimatePresence, motion } from 'framer-motion'
 
-export const Menu = ({ isOpen }) => {
+export const Menu = () => {
 
     const contMenu = useRef();
-    const [subMenu, setSubMenu] = useState();
     const subMenuCont = useRef();
+    const MenuContext = createContext();
+    const CatContext = createContext();
+    const { isOpenMenu, setIsOpenMenu } = useContext(MenuContext);
+    const { subMenu, setSubMenu } = useContext(CatContext);
+    const [contentMenu, setContentMenu] = useState(null)
 
-
-
-    const updateMenu = ({ currentTarget }) => {
+    const handleClick = (name) => {
 
         if (subMenu) {
-            if (subMenu.name == currentTarget.dataset.name) return
+            if (subMenu == name){
+                setContentMenu(null);
+                setSubMenu(null);
+                return
+            } 
         }
-        const tempSubMenu = menu.filter(i => i.name === currentTarget.dataset.name)
 
-        setSubMenu(tempSubMenu[0]);
+        setSubMenu(name);
+
+        const tempSubMenu = menu.filter(i => i.name === name)
+
+        setContentMenu(tempSubMenu[0]);
     }
     return (
         <AnimatePresence>
-            {isOpen && (
+            {isOpenMenu && (
                 <motion.div
                     initial={{
                         opacity: 0,
@@ -39,17 +49,20 @@ export const Menu = ({ isOpen }) => {
                         x: -120
                     }}
                 >
+
                     <div ref={contMenu} className={styles.principal}>
                         <div className={styles.icons}>
                             {menu.map(i => {
-                                return <MenuIcon icon={i.icon} name={i.name} onClick={updateMenu} />
+                                return <MenuIcon catContext={subMenu} name={i.name} onClick={handleClick} />
 
                             })}
                         </div>
                         <div ref={subMenuCont} className={styles['sub-menu']}>
-                            {subMenu && <SubMenu menu={subMenu} />}
+                            <SubMenu menu={contentMenu} />
                         </div>
                     </div>
+
+
                 </motion.div>)}
         </AnimatePresence>
     )
