@@ -8,11 +8,10 @@ export const BurguerIcon = () => {
   const CatContext = createContext()
 
   const { isOpenMenu, setIsOpenMenu } = useContext(MenuContext);
-  const { subMenu, setSubMenu} = useContext(CatContext); //todo make the subMenu state global cuz burguer icon is not under scope
-
+  const { subMenu, setSubMenu } = useContext(CatContext);
   const checkedHandler = ({ currentTarget }) => {
     setIsOpenMenu(currentTarget.checked);
-    if(subMenu) setSubMenu(null);
+    if (subMenu) setSubMenu(null);
   }
 
   return (

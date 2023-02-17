@@ -20,11 +20,6 @@ export function App() {
     
   }
 
-
-  console.log(subMenu);
-
-
-
   return (
     <MenuContext.Provider value={{ isOpenMenu, setIsOpenMenu }}>
       <CatContext.Provider value={{ subMenu, setSubMenu }} >

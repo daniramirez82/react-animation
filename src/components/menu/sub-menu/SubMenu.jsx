@@ -1,14 +1,17 @@
 import { useEffect, useState, useContext } from 'preact/hooks';
+import { createContext } from 'preact';
 import { AnimatePresence, motion } from 'framer-motion'
 import styles from './SubMenu.module.scss';
 
 const SubMenu = ({ menu }) => {
-    console.log(menu);
+
+    const CatContext = createContext();
+
+    const { subMenu, setSubMenu} = useContext(CatContext);
+
     const [visible, setVisible] = useState();
 
     const [menuContent, setMenuContent] = useState(null);
-    console.log(menuContent);
-
 
     useEffect(() => {
 
@@ -32,7 +35,7 @@ const SubMenu = ({ menu }) => {
 
     return (
         <AnimatePresence >
-            {menuContent && visible &&
+            {subMenu && visible &&
                 <motion.div
                     key="sub-menu"
                     initial={{ opacity: 0, x: -300 }}

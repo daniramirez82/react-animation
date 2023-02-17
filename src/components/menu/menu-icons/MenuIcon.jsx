@@ -3,8 +3,8 @@ import { useState } from 'preact/hooks';
 import Icon from './Icon';
 
 const MenuIcon = ({ name, onClick, catContext }) => {
-    const [isSelected, setIsSelected] = useState(false); //todo read the global state and make botton darker if is selected
 
+    const [isSelected, setIsSelected] = useState(false);
 
     return (
         
