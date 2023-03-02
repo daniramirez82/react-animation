@@ -1,6 +1,8 @@
+@use '../../system';
+
 .icon-wrap {
   width: 48px;
-  background-color: rgb(73, 73, 73);
+  background-color: system.$shadow-color;
   height: 48px;
   display: flex;
   justify-content: center;
@@ -19,7 +21,7 @@
 
 .shape {
   height: 2px;
-  background-color: #ffd100;
+  background-color: system.$base-color;
   border-radius: 2px;
   transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
 

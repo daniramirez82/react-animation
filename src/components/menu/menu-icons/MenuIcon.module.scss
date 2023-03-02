@@ -1,7 +1,9 @@
+@use '../../../system';
+
 .wrapper{
-    width: 52px;
-    height: 45px;
-    border-radius: 8px;
+    width: 48px;
+    height: 48px;
+    border-radius: 7px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,7 +11,7 @@
 }
 
 .selected{
-    background-color: red;
+    background-color: system.$brand-color;
 }
 
 .icon-wrapper{

@@ -1,0 +1,39 @@
+@use '../../system';
+
+.input {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 6px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        z-index: 100;
+        left: 0;
+        width: 24px;
+        height: 24px;
+        background: url(/icons/search.svg) no-repeat;
+        color: white;
+        margin-left: 10px;
+    }
+}
+
+.input-search {
+    box-sizing: border-box;
+    padding: 5px;
+    margin: 0;
+    padding-left: 45px;
+    border: none;
+    border-radius: 7px;
+    width: 100%;
+    outline: 1.5px solid system.$shadow-color;
+    height: 42px;
+
+    &::placeholder, ::-webkit-input-placeholder, ::-webkit-input-placeholder{
+        color: system.$base-color;
+        font-size: 16px;
+    }
+}

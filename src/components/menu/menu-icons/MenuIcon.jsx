@@ -8,9 +8,9 @@ const MenuIcon = ({ name, onClick, catContext }) => {
 
     return (
         
-            <div data-name={name} onClick={()=>onClick(name)} className={`${styles.wrapper} ${ name === catContext ? styles.selected : ""}`}>
+            <div data-name={name} onClick={(e)=> {e.stopPropagation(); onClick(name)}} className={`${styles.wrapper} ${ name === catContext ? styles.selected : ""}`}>
                 <div  className={styles['icon-wrapper']}>
-                    <Icon name={name} color={'red'} size={24}></Icon>
+                    <Icon name={name} color={'none'} size={24}></Icon>
                 </div>
             </div>
         

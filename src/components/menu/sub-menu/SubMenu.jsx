@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from 'preact/hooks';
 import { createContext } from 'preact';
 import { AnimatePresence, motion } from 'framer-motion'
+import Input from '../../ui/Input';
 import styles from './SubMenu.module.scss';
 
 const SubMenu = ({ menu }) => {
@@ -38,7 +39,7 @@ const SubMenu = ({ menu }) => {
             {subMenu && visible &&
                 <motion.div
                     key="sub-menu"
-                    initial={{ opacity: 0, x: -300 }}
+                    initial={{ opacity: 0, x: -60 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -60 }}
                     transition={{ duration: 0.5 }}
@@ -47,9 +48,7 @@ const SubMenu = ({ menu }) => {
                 >
                     <div className={styles['sub-menu']}>
                         <h2>{menuContent.subTitle}</h2>
-                        <div className={styles.input}>
-                            <input className={styles['input-search']} type="text" placeholder='Type here' />
-                        </div>
+                        <Input/>
                         <h3 className={styles.subtitle}>{menuContent.subTitle}</h3>
                         <ul className={styles.list}>
                             {menuContent.contents.map(i => {

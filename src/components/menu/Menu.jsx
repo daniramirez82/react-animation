@@ -6,9 +6,8 @@ import { menu } from '../../data/menu-info';
 import SubMenu from './sub-menu/SubMenu';
 import { AnimatePresence, motion } from 'framer-motion'
 
-export const Menu = () => {
+export const Menu = ({onClick}) => {
 
-    const contMenu = useRef();
     const subMenuCont = useRef();
     const MenuContext = createContext();
     const CatContext = createContext();
@@ -18,12 +17,13 @@ export const Menu = () => {
 
     const handleClick = (name) => {
 
+
         if (subMenu) {
-            if (subMenu == name){
+            if (subMenu == name) {
                 setContentMenu(null);
                 setSubMenu(null);
                 return
-            } 
+            }
         }
 
         setSubMenu(name);
@@ -36,6 +36,7 @@ export const Menu = () => {
         <AnimatePresence>
             {isOpenMenu && (
                 <motion.div
+                    className={styles['wrapper-animated-cont']}
                     initial={{
                         opacity: 0,
                         x: -100
@@ -50,14 +51,17 @@ export const Menu = () => {
                     }}
                 >
 
-                    <div ref={contMenu} className={styles.principal}>
-                        <div className={styles.icons}>
-                            {menu.map(i => {
-                                return <MenuIcon catContext={subMenu} name={i.name} onClick={handleClick} />
+                    <div className={styles.principal} onClick={onClick}>
+                        <div className={styles['icons-cont']}>
+                            <div className={styles.icons}>
+                                {menu.map(i => {
+                                    return <MenuIcon catContext={subMenu} name={i.name} onClick={handleClick} />
 
-                            })}
+                                })}
+                            </div>
+                            <img className={styles['profile-pic']} src="/profile-pic.png" alt="profile pic" />
                         </div>
-                        <div ref={subMenuCont} className={styles['sub-menu']}>
+                        <div className={styles['sub-menu-cont']}>
                             <SubMenu menu={contentMenu} />
                         </div>
                     </div>
