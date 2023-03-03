@@ -1,12 +1,10 @@
 import { useEffect, useState, useContext } from 'preact/hooks';
-import { createContext } from 'preact';
+import { CatContext } from '../../../app';
 import { AnimatePresence, motion } from 'framer-motion'
 import Input from '../../ui/Input';
 import styles from './SubMenu.module.scss';
 
 const SubMenu = ({ menu }) => {
-
-    const CatContext = createContext();
 
     const { subMenu, setSubMenu} = useContext(CatContext);
 

@@ -1,13 +1,8 @@
 import { useContext } from "preact/hooks";
-import { createContext } from "preact";
 import styles from "./BurguerIcon.module.scss";
+import { CatContext } from "../../app";
 
-export const BurguerIcon = () => {
-
-  const MenuContext = createContext();
-  const CatContext = createContext()
-
-  const { isOpenMenu, setIsOpenMenu } = useContext(MenuContext);
+export const BurguerIcon = ({ isOpenMenu, setIsOpenMenu }) => {
   const { subMenu, setSubMenu } = useContext(CatContext);
   const checkedHandler = ({ currentTarget }) => {
     setIsOpenMenu(currentTarget.checked);

@@ -1,10 +1,10 @@
 import styles from "./Navbar.module.scss";
 import { BurguerIcon } from "../BurguerIcon";
 
-const Navbar = () => {
+const Navbar = ({isOpenMenu, setIsOpenMenu}) => {
     return < div className={styles.nav} >
         <div className="">
-            <BurguerIcon />
+            <BurguerIcon isOpenMenu={isOpenMenu} setIsOpenMenu={setIsOpenMenu}/>
         </div>
         <div className={"" + styles.logo}>
             <div className={styles["logo-img"]}>

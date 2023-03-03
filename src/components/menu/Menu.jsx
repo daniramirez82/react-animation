@@ -1,17 +1,13 @@
 import { useContext, useEffect, useRef, useState } from 'preact/hooks';
-import { createContext } from 'preact';
+import { CatContext } from '../../app';
 import styles from './Menu.module.scss';
 import MenuIcon from './menu-icons/MenuIcon';
 import { menu } from '../../data/menu-info';
 import SubMenu from './sub-menu/SubMenu';
 import { AnimatePresence, motion } from 'framer-motion'
 
-export const Menu = ({onClick}) => {
+export const Menu = ({onClick, isOpen}) => {
 
-    const subMenuCont = useRef();
-    const MenuContext = createContext();
-    const CatContext = createContext();
-    const { isOpenMenu, setIsOpenMenu } = useContext(MenuContext);
     const { subMenu, setSubMenu } = useContext(CatContext);
     const [contentMenu, setContentMenu] = useState(null)
 
@@ -34,7 +30,7 @@ export const Menu = ({onClick}) => {
     }
     return (
         <AnimatePresence>
-            {isOpenMenu && (
+            {isOpen && (
                 <motion.div
                     className={styles['wrapper-animated-cont']}
                     initial={{
