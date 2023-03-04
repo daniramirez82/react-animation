@@ -12,6 +12,9 @@ h2 {
 
 .main-sub-menu {
     width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .subtitle {
@@ -57,4 +60,10 @@ li {
             background: url(/icons/folder.svg) no-repeat;
         }
     }
+}
+
+.empty-area{
+    width: 100%;
+    height: 100%;
+    background-color: red;
 }

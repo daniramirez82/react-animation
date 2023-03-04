@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Input from '../../ui/Input';
 import styles from './SubMenu.module.scss';
 
-const SubMenu = ({ menu }) => {
+const SubMenu = ({ onClick, menu }) => {
 
     const { subMenu, setSubMenu} = useContext(CatContext);
 
@@ -57,6 +57,7 @@ const SubMenu = ({ menu }) => {
 
                         </ul>
                     </div>
+                    <div onClick={onClick} className={styles['empty-area']}></div>
                 </motion.div>}
         </AnimatePresence>
     )

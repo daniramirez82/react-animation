@@ -6,7 +6,7 @@ import { menu } from '../../data/menu-info';
 import SubMenu from './sub-menu/SubMenu';
 import { AnimatePresence, motion } from 'framer-motion'
 
-export const Menu = ({onClick, isOpen}) => {
+export const Menu = ({ onClick, isOpen }) => {
 
     const { subMenu, setSubMenu } = useContext(CatContext);
     const [contentMenu, setContentMenu] = useState(null)
@@ -47,7 +47,7 @@ export const Menu = ({onClick, isOpen}) => {
                     }}
                 >
 
-                    <div className={styles.principal} onClick={onClick}>
+                    <div className={styles.principal}>
                         <div className={styles['icons-cont']}>
                             <div className={styles.icons}>
                                 {menu.map(i => {
@@ -58,7 +58,7 @@ export const Menu = ({onClick, isOpen}) => {
                             <img className={styles['profile-pic']} src="/profile-pic.png" alt="profile pic" />
                         </div>
                         <div className={styles['sub-menu-cont']}>
-                            <SubMenu menu={contentMenu} />
+                            <SubMenu menu={contentMenu} onClick={onClick} />
                         </div>
                     </div>
 
